@@ -1,58 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta charset='utf-8'>
+    <meta http-equiv='x-ua-compatible' content='IE=edge,chrome=1'>
 
     <title>Codive</title>
-    <meta name="description" content="A real-time platform for hosting coding workshops.">
+    <meta name='description' content='A real-time platform for hosting coding workshops.'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1'>
 
-    <link rel="home" href="https://madhavarshney.github.io/codive"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
-    <link rel="canonical" href="https://madhavarshney.github.io/codive" />
+    <link rel='home' href='https://madhavarshney.github.io/codive'/>
+    <link rel='icon' type='image/png' href='/assets/favicon.png'>
+    <link rel='canonical' href='https://madhavarshney.github.io/codive' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' />
 
     <!-- Open graph -->
-    <meta property="og:title" content="Codive" />
-    <meta property="og:description" content="A real-time platform for hosting coding workshops" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://madhavarshney.github.io/codive" />
-    <meta property="og:image" content="/assets/card.png" />
-    <meta property="og:image:secure_url" content="/assets/card.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Codive" />
+    <meta property='og:title' content='Codive' />
+    <meta property='og:description' content='A real-time platform for hosting coding workshops' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://madhavarshney.github.io/codive' />
+    <meta property='og:image' content='/assets/card.png' />
+    <meta property='og:image:secure_url' content='/assets/card.png' />
+    <meta property='og:image:type' content='image/png' />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:image:alt' content='Codive' />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://madhavarshney.github.io/codive">
-    <meta name="twitter:title" content="Codive">
+    <meta name='twitter:card' content='summary'>
+    <meta name='twitter:url' content='https://madhavarshney.github.io/codive'>
+    <meta name='twitter:title' content='Codive'>
 
     <!-- Android -->
-    <link rel="manifest" href="/manifest.webmanifest">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#ffffff">
+    <link rel='manifest' href='/manifest.webmanifest'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='theme-color' content='#ffffff'>
 
     <!-- IOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
-    <meta name="apple-mobile-web-app-title" content="Codive">
-    <link rel="apple-touch-startup-image" href="/assets/icon-192x192.png">
-    <link rel="apple-touch-icon" href="/assets/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon-180x180.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/assets/icon-512x512.png">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='#ffffff'>
+    <meta name='apple-mobile-web-app-title' content='Codive'>
+    <link rel='apple-touch-startup-image' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' sizes='180x180' href='/assets/icon-180x180.png'>
+    <link rel='apple-touch-icon' sizes='192x192' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' sizes='512x512' href='/assets/icon-512x512.png'>
 
     <!-- Windows -->
-    <meta name="msapplication-TileImage" content="/assets/icon-512x512.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name='msapplication-TileImage' content='/assets/icon-512x512.png'>
+    <meta name='msapplication-TileColor' content='#ffffff'>
+
+    <!-- Scripts -->
+    <script src='https://meet.jit.si/external_api.js'></script>
 
     <!-- App entry point -->
-    <script defer src="./index.js"></script>
+    <script defer src='./index.js'></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id='firebaseui-auth-container'></div>
+    <div id='app'></div>
   </body>
   <noscript>Enable JavaScript</noscript>
 </html>

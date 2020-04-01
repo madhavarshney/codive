@@ -1,0 +1,449 @@
+@import 'github-markdown-css';
+@import 'firebaseui/dist/firebaseui.css';
+@import 'firepad/dist/firepad.css';
+
+/* http://paletton.com/#uid=73y2e0kCQXxlqWCrPXnWHMHTYtC */
+
+:global {
+
+html, body {
+    /* background-color: white; */
+    margin: 0;
+    padding: 0;
+    /* Reset sanitize.css */
+    word-break: normal;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; */
+}
+html, body, .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#firebaseui-auth-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#firebaseui-auth-container > div {
+    background-color: white;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.05);
+    /* padding: 24px 32px; */
+}
+.spacer {
+    flex: 1;
+}
+.rounded-panel {
+    border-radius: 16px;
+    padding-bottom: 24px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
+}
+.panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.left-panel {
+    flex: 1;
+    overflow: hidden;
+    padding: 24px 16px 24px 32px;
+}
+.right-panel {
+    width: max(30%, 300px);
+    overflow: hidden;
+    padding: 24px 32px 24px 16px;
+}
+.slide-header {
+    /* background-color: #0D8CF5;
+    color: white;
+    background: linear-gradient(45deg, #0276D7, #5BAEF3); */
+    margin-bottom: 24px;
+    background-color: white;
+    padding: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.slide-header-title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* .slide-nav {
+    display: flex;
+    align-items: center;
+} */
+.tab-header {
+    display: flex;
+    /* padding: 0 16px; */
+}
+.tab-btn {
+    padding: 8px 16px;
+    border-radius: 4px 4px 0 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color .1s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.tab-btn:disabled {
+    color: rgba(0, 0, 0, 0.2);
+}
+.tab-btn:not(:disabled):not(.active):hover {
+    background-color: rgba(255,255,255,0.6);
+}
+.tab-btn.active {
+    background-color: white;
+    z-index: 1;
+    /* background-color: rgba(0,0,0,0.15); */
+}
+.slide {
+    /* height: 100%; */
+    overflow: hidden;
+    flex: 1;
+    background-color: white;
+    /* padding: 36px 12px; */
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: border-radius 0.2s;
+}
+.square-corner-panel {
+    border-radius: 0 16px 16px 16px;
+}
+/* @keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} */
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.hidden {
+    display: none !important;
+}
+#meet {
+    /* width: 100%; */
+    /* height: 100%; */
+    flex: 1;
+    padding: 16px 24px;
+}
+.playground {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 24px;
+    flex: 1;
+}
+#editor {
+    /* width: 100%; */
+    flex: 1.3;
+    max-width: calc(50% * 1.3);
+}
+#preview {
+    /* height: 100%; */
+    flex: 1;
+    /* padding-left: 8px; */
+}
+#preview iframe {
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+}
+.slide-content {
+    overflow: auto;
+    flex: 1;
+    /* height: 100%; */
+    padding: 16px;
+    /* animation: 0.5s ease-in 0.2s fadeSlideIn; */
+    /* animation: 0.5s cubic-bezier(.16,1,.16,1) fadeSlideIn; */
+    animation: 0.4s linear fadeSlideIn;
+}
+.slide-content.markdown-body .anchor {
+    display: none!important;
+}
+.slide-content > * {
+    border-left-color: white;
+    padding-left: 12px;
+    transition: border-left-color 0.3s;
+}
+/* TODO: find better way of working around padding for lists */
+/* .slide-content .live-p:not(ul):not(ol), .slide-content > *:not(ul):not(ol):hover { */
+.isHost .slide-content > *:not(ul):not(ol):hover {
+    padding-left: 8px;
+}
+.isHost .slide-content > ul:hover, .isHost .slide-content > ol:hover {
+    padding-left: calc(2em - 4px);
+}
+.isHost .slide-content > *:hover {
+    border-left: 4px solid lightgrey;
+}
+/* .slide-content .live-p {
+    border-left: 4px solid orangered;
+} */
+.part-panel {
+    flex: 1;
+    /* height: 100%; */
+    background-color: white;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.you-panel {
+    background-color: white;
+    /* background: linear-gradient(180deg, #00E053, #51F58EA0); */
+    /* margin-bottom: 24px; */
+}
+.title {
+    text-align: center;
+}
+.participants {
+    /* display: flex;
+    flex-direction: column; */
+    flex: 1;
+    overflow: auto;
+    padding: 0 24px;
+}
+.part {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+}
+.part-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgb(125, 255, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.part-info {
+    flex: 1;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* justify-content: center; */
+}
+.part-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.part-you {
+    margin-left: 8px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.part-reaction {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+.reactions {
+    display: flex;
+    justify-content: space-evenly;
+}
+.reaction-btn {
+    transition: background-color .3s;
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+.reaction-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+.reaction-btn.active {
+    background-color: rgba(0,0,0,0.15);
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: auto;
+    margin-left: 8px;
+}
+.pagination-title {
+    color: grey;
+    font-size: 14px;
+    margin-right: 8px;
+    line-height: 0;
+}
+.pagination-btns {
+    white-space: nowrap;
+    margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+}
+.pagination-btn, .pagination-live-btn {
+    padding: 4px;
+    border-radius: 2px;
+    line-height: 0;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+.pagination-btn:disabled, .pagination-live-btn:disabled {
+    color: rgba(0, 0, 0, 0.2);
+}
+.pagination-btn:not(:disabled):hover, .pagination-live-btn:not(:disabled):hover {
+    background-color: rgba(0,0,0,0.1);
+}
+.pagination-btn {
+    height: 24px;
+    width: 24px;
+    font-size: 20px;
+}
+.pagination-live-btn.live {
+    /* background-color: rgba(0,0,0,0.15); */
+}
+.pagination-live-btn {
+    height: 24px;
+    /* width: 24px; */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+.live-btn-dot {
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: rgb(0,0,0,0.15);
+    /* TODO: fix background-color transition (not currently working) */
+    transition: backround-color 1s;
+}
+.live .live-btn-dot {
+    background-color: red;
+}
+.pagination-dots {
+    /* TODO: find better way to handle overflow */
+    min-width: 4em;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.pagination-dot {
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: rgb(0,0,0,0.15);
+    /* TODO: fix background-color transition (not currently working) */
+    transition: transform .1s, backround-color 1s;
+}
+.pagination-dot:hover {
+    background-color: grey;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+.pagination-dot.active {
+    border: 0.1px lightslategray solid;
+    /* background-color: rgb(125, 255, 125); */
+    background-color: rgb(0,0,0,0.6);
+}
+.pagination-dot.live {
+    border: 0.1px lightslategray solid;
+    background-color: orangered;
+}
+
+
+/* MODAL */
+.modal.visible {
+    display: flex;
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Modal Content */
+.modal-content {
+  width: 50%;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 4px;
+  margin: auto;
+  padding: 24px 24px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.2);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+}

@@ -30,6 +30,8 @@ body {
   overflow-x: hidden;
 }
 
+#app {
+
 ::selection {
 	background: var(--accent-color);
 	color: var(--background-color);
@@ -161,4 +163,6 @@ hr {
   border: none;
   height: 1px;
   background-color: currentColor;
+}
+
 }

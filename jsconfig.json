@@ -6,6 +6,7 @@
     "paths": {
       "/*": ["src/*"],
     },
+    "resolveJsonModule": true,
     "plugins": [
       { // See https://github.com/mrmckeb/typescript-plugin-css-modules for more options
         "name": "typescript-plugin-css-modules",
