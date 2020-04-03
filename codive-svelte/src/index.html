@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+	<title><%= htmlWebpackPlugin.options.title %></title>
+	<meta name='description' content='<%= htmlWebpackPlugin.options.description %>'>
+
+    <link rel='home' href='<%= htmlWebpackPlugin.options.websiteUrl %>'/>
+    <link rel='icon' type='image/x-icon' href='assets/favicon.ico'>
+    <link rel='canonical' href='<%= htmlWebpackPlugin.options.websiteUrl %>' />
+
+    <!-- Open graph -->
+    <meta property='og:title' content='<%= htmlWebpackPlugin.options.title %>' />
+    <meta property='og:description' content='<%= htmlWebpackPlugin.options.description %>' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='<%= htmlWebpackPlugin.options.websiteUrl %>' />
+    <!-- <meta property='og:image' content='/assets/card.png' />
+    <meta property='og:image:secure_url' content='/assets/card.png' />
+    <meta property='og:image:type' content='image/png' />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:image:alt' content='<%= htmlWebpackPlugin.options.title %>' /> -->
+
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary'>
+    <meta name='twitter:url' content='<%= htmlWebpackPlugin.options.websiteUrl %>'>
+    <meta name='twitter:title' content='<%= htmlWebpackPlugin.options.title %>'>
+
+    <!-- Android -->
+    <!-- <link rel='manifest' href='/manifest.webmanifest'>
+    <meta name='mobile-web-app-capable' content='yes'>
+    <meta name='theme-color' content='#ffffff'> -->
+
+    <!-- iOS -->
+    <!-- <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='#ffffff'>
+    <meta name='apple-mobile-web-app-title' content='<%= htmlWebpackPlugin.options.title %>'>
+    <link rel='apple-touch-startup-image' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' sizes='180x180' href='/assets/icon-180x180.png'>
+    <link rel='apple-touch-icon' sizes='192x192' href='/assets/icon-192x192.png'>
+    <link rel='apple-touch-icon' sizes='512x512' href='/assets/icon-512x512.png'> -->
+
+    <!-- Windows -->
+    <!-- <meta name='msapplication-TileImage' content='/assets/icon-512x512.png'>
+    <meta name='msapplication-TileColor' content='#ffffff'> -->
+</head>
+<body>
+    <script src='https://meet.jit.si/external_api.js'></script>
+</body>
+<noscript>Enable JavaScript to use <%= htmlWebpackPlugin.options.title %></noscript>
+</html>

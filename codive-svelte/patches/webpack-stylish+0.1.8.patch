@@ -1,0 +1,21 @@
+diff --git a/node_modules/webpack-stylish/lib/parse.js b/node_modules/webpack-stylish/lib/parse.js
+index 290fc93..aaa3158 100644
+--- a/node_modules/webpack-stylish/lib/parse.js
++++ b/node_modules/webpack-stylish/lib/parse.js
+@@ -32,12 +32,13 @@ module.exports = {
+ 
+   files(stats) {
+     const assets = module.exports.assets(stats);
+-    const modules = module.exports.modules(stats);
+-    let result = [].concat(module.exports.header(), modules);
++    // const modules = module.exports.modules(stats);
++    // let result = [].concat(module.exports.header(), modules);
++    let result = [];
+ 
+     if (assets.length) {
+       result = result.concat(
+-        [['', '', '', '']],
++        // [['', '', '', '']],
+         module.exports.header('asset'),
+         assets);
+     }
