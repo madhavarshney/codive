@@ -1,9 +1,11 @@
 import { absolutify } from './absolutify';
 
+const RANDOM_SPLITTER = 'codive83d';
+
 const extractSlides = (data) => {
   let parts = data
-    .replace(/\<h(1|2)\>/gi, '*m*v*div***<h$1>')
-    .split('*m*v*div***');
+    .replace(/\<h(1|2)\>/gi, `${RANDOM_SPLITTER}<h$1>`)
+    .split(RANDOM_SPLITTER);
   // TODO: clean extra stuff from last part as well
   parts.shift();
 

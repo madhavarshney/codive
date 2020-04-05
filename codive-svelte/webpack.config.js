@@ -12,6 +12,21 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
+const stats = {
+  all: false,
+  colors: true,
+  errors: true,
+  warnings: true,
+  logging: 'warn',
+};
+const linariaLoader = {
+  loader: 'linaria/loader',
+  options: {
+    sourceMap: true,
+    cacheDirectory: 'node_modules/.cache/.linaria-cache',
+  },
+};
+
 module.exports = {
   mode,
   entry: {
@@ -32,8 +47,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: [
+          linariaLoader,
+        ],
+      },
+      {
         test: /\.svelte$/,
         use: [
+          linariaLoader,
           {
             loader: 'svelte-loader',
             options: {
@@ -47,10 +70,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          /**
-           * MiniCssExtractPlugin doesn't support HMR.
-           * For developing, use 'style-loader' instead.
-           * */
           prod ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
         ],
@@ -69,11 +88,9 @@ module.exports = {
       },
     ],
   },
-  // stats: 'none',
-  stats: 'minimal',
+  stats,
   devServer: {
-    // stats: 'none',
-    stats: 'minimal',
+    stats,
   },
   plugins: [
     new CleanWebpackPlugin(),

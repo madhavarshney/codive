@@ -29,7 +29,7 @@
     color: grey;
     font-size: 14px;
     margin-right: 8px;
-    line-height: 0;
+    line-height: 1;
   }
   .pagination-btns {
     white-space: nowrap;

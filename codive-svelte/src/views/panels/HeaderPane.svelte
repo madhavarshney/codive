@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { roundedPanel } from '../styles';
   import Pagination from '../components/Pagination.svelte';
 
   export let event;
@@ -38,7 +39,7 @@
   }
 </style>
 
-<div class="slide-header rounded-panel">
+<div class={`slide-header ${roundedPanel}`}>
   <span class="slide-header-title" title={event.title}>{event.title}</span>
   <span class="spacer" />
   <!-- <Pagination

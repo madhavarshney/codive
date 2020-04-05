@@ -1,8 +1,8 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { roundedPanel } from '../styles';
   import Slide from '../tabs/Slide.svelte';
   import JitsiMeet from '../tabs/JitsiMeet.svelte';
-  // import Playground from '../tabs/Playground.svelte';
 
   export let user;
   export let activeSlide;
@@ -87,7 +87,7 @@
   {/each}
 </div>
 
-<div class="slide rounded-panel" class:square-corner-panel={currentTab === 0}>
+<div class={`slide  ${roundedPanel}`} class:square-corner-panel={currentTab === 0}>
   <JitsiMeet isActiveTab={currentTab === 0} {user} {jitsiID} />
   <Slide
     isActiveTab={currentTab === 1}

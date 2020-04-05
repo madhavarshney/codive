@@ -135,21 +135,21 @@
     border-left: 4px solid lightgrey;
   }
   /* .slide-content .live-p {
-        border-left: 4px solid orangered;
-    } */
+    border-left: 4px solid orangered;
+  } */
   /* @keyframes fadeSlideIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        50% {
-            opacity: 0.3;
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    } */
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  } */
   @keyframes fadeSlideIn {
     0% {
       opacity: 0;

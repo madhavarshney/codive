@@ -69,20 +69,20 @@
 
   /* The Close Button */
   /* .close {
-        color: white;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
 
-    .close:hover, .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    } */
+  .close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  } */
 </style>
 
-<div class:modal={true} class:visible={true}>
+<div class="modal visible">
   <div class="modal-content">
     <!-- <span class='close' onclick=${CloseModal}>×</span> -->
     <h2>Join a Meeting</h2>

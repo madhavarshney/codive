@@ -1,4 +1,6 @@
 <script>
+  import { title, roundedPanel } from '../styles';
+
   export let viewers = [];
   export let reactions;
   export let user;
@@ -23,9 +25,6 @@
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;
-  }
-  .title {
-    text-align: center;
   }
   .participants {
     /* display: flex;
@@ -72,8 +71,8 @@
   }
 </style>
 
-<div class="part-panel rounded-panel">
-  <h2 class="title">Viewers</h2>
+<div class={`part-panel ${roundedPanel}`}>
+  <h2 class={title}>Viewers</h2>
   <div class="participants">
     {#each sortedViewers as viewer}
       <div class="part">
