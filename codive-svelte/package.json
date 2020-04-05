@@ -7,6 +7,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server",
+    "lint": "prettier --check \"./**/*.{svelte,js}\"",
+    "lint:fix": "prettier --write \"./**/*.{svelte,js}\"",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -28,6 +30,8 @@
     "monaco-editor-webpack-plugin": "^1.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "patch-package": "^6.2.2",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
     "serve": "^11.3.0",
     "style-loader": "^1.1.3",
     "svelte": "^3.20.1",

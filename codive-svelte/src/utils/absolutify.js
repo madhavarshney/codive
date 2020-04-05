@@ -9,10 +9,10 @@
  */
 
 export function absolutify(str, url) {
-  if (typeof url === 'function') return absolutify.iterate(str, url)
+  if (typeof url === 'function') return absolutify.iterate(str, url);
   return str
-    .replace(absolutify.rx, '$1' + url + '/$6')      // Inject the URL into the attribute
-    .replace(new RegExp(url + '//', 'g'), url + '/') // Fix `attr="/"` edgecase causing a `//` issue
+    .replace(absolutify.rx, '$1' + url + '/$6') // Inject the URL into the attribute
+    .replace(new RegExp(url + '//', 'g'), url + '/'); // Fix `attr="/"` edgecase causing a `//` issue
 }
 
 /*!
@@ -27,7 +27,7 @@ export function absolutify(str, url) {
    5.
  */
 
-absolutify.rx = /((href|src|codebase|cite|background|action|profile|formaction|icon|manifest|archive)=["'])(?!(http|https|ftp|file|filesystem|gopher|ws|wss|about|blob|data|mailto):|(\/\/))((?:\/)?([^'"]+))/g // jshint ignore:line
+absolutify.rx = /((href|src|codebase|cite|background|action|profile|formaction|icon|manifest|archive)=["'])(?!(http|https|ftp|file|filesystem|gopher|ws|wss|about|blob|data|mailto):|(\/\/))((?:\/)?([^'"]+))/g; // jshint ignore:line
 
 /**
  * URL replacement using function iteration, this is handled slightly
@@ -41,12 +41,15 @@ absolutify.rx = /((href|src|codebase|cite|background|action|profile|formaction|i
 
 absolutify.iterate = function(str, iterator) {
   return str.replace(absolutify.rx, function() {
-    var url = arguments[6]
+    var url = arguments[6];
 
-    return arguments[1] + iterator(
-      url === '/' ? '' : url // URL without leading `/` (check for `attr="/"` edgecase)
-    , arguments[2]           // HTML attribute
-    , arguments[5]           // Contains leading `/` if found
-    )
-  })
-}
+    return (
+      arguments[1] +
+      iterator(
+        url === '/' ? '' : url, // URL without leading `/` (check for `attr="/"` edgecase)
+        arguments[2], // HTML attribute
+        arguments[5] // Contains leading `/` if found
+      )
+    );
+  });
+};
