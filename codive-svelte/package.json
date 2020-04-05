@@ -12,7 +12,6 @@
   "dependencies": {
     "firebase": "^7.13.2",
     "firebaseui": "^4.5.0",
-    "firepad": "^1.5.9",
     "github-markdown-css": "^4.0.0",
     "monaco-editor": "^0.20.0",
     "sanitize.css": "^11.0.0",

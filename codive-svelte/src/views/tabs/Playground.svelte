@@ -1,7 +1,7 @@
 <script>
     import { onMount, afterUpdate, getContext, createEventDispatcher } from 'svelte';
     import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-    import * as Firepad from 'firepad/dist/firepad';
+    import * as Firepad from '../../utils/firepad';
 
     export let isActiveTab;
     export let previewHTML;
