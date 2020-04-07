@@ -12,8 +12,8 @@
 
   $: ({ activeSlide, count, slideContent } = localSlides);
   $: ({ reactions, currentTab, previewHTML } = state);
-  $: ({ viewers, event, slides } = meeting);
-  $: ({ liveSlide } = slides);
+  $: ({ viewers, event, live } = meeting);
+  $: ({ liveSlide } = live);
   $: ({ jitsiID } = event);
 </script>
 
@@ -45,7 +45,7 @@
   <ContentPane
     {isHost}
     {activeSlide}
-    {slides}
+    {live}
     {currentTab}
     {previewHTML}
     {slideContent}

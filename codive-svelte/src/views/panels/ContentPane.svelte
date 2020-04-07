@@ -10,7 +10,7 @@
   export let currentTab;
   export let previewHTML;
   export let isHost;
-  export let slides;
+  export let live;
   export let jitsiID;
   export let count;
   export let liveSlide;
@@ -94,7 +94,7 @@
     {activeSlide}
     {content}
     {isHost}
-    {slides}
+    {live}
     {count}
     {liveSlide}
     on:liveSlideChange

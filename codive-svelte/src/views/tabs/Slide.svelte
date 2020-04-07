@@ -4,7 +4,7 @@
 
   export let activeSlide;
   export let isHost;
-  export let slides;
+  export let live;
   export let isActiveTab;
   export let content;
   export let count;
@@ -32,18 +32,18 @@
   afterUpdate(() => {
     if (content) {
       displaySelection({
-        isLiveSlide: slides.liveSlide === activeSlide,
+        isLiveSlide: live.liveSlide === activeSlide,
         activeSlide,
-        liveP: slides.liveP,
+        liveP: live.liveP,
       });
     }
   });
 
   function displaySelection(options) {
     const { isLiveSlide, activeSlide, liveP } = options;
-    console.log(
-      `DisplaySelection called with isHost=${isHost}, isLiveSlide=${isLiveSlide}, activeSlide=${activeSlide}, liveP=${liveP}`
-    );
+    // console.log(
+    //   `DisplaySelection called with isHost=${isHost}, isLiveSlide=${isLiveSlide}, activeSlide=${activeSlide}, liveP=${liveP}`
+    // );
     if (sheet.cssRules.length > 0) {
       sheet.deleteRule(0);
       sheet.deleteRule(0);
@@ -170,12 +170,12 @@
     {activeSlide}
     {count}
     {liveSlide}
-    {isHost}
     on:prevSlide
     on:nextSlide
     on:goToLiveSlide
     on:setSlide
   />
+  <!-- {isHost} -->
   <div
     key={activeSlide}
     class="slide-content markdown-body"

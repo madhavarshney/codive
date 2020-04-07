@@ -3,7 +3,7 @@
   import { FirebaseApp, User } from 'sveltefire';
 
   import { isHost, meeting, slides, state } from '../stores';
-  import { firebaseDB, parseMeeting } from '../utils/firebase';
+  import { firebaseDB, parseMeeting, parseUser } from '../utils/firebase';
   import { fetchAllSlides } from '../utils/slides';
   import Meeting from './Meeting.svelte';
   import Modal from './Modal.svelte';
@@ -21,51 +21,10 @@
     firebaseDB.registerPresence($meeting.id, user);
   }
 
-  function switchTab(event) {
-    state.update((prev) => ({ ...prev, currentTab: event.detail.index }));
-  }
-
   function updateLiveSlide(event) {
     const { liveSlide, liveP } = event.detail;
     firebaseDB.updateLiveSlide($meeting.id, liveSlide, liveP);
   }
-
-  function _setSlide(index) {
-    slides.update((prev) => ({
-      ...prev,
-      activeSlide: index >= 0 && index < prev.count ? index : prev.activeSlide,
-    }));
-  }
-
-  function setSlide(event) {
-    _setSlide(event.detail.index);
-  }
-
-  function prevSlide() {
-    _setSlide($slides.activeSlide - 1);
-  }
-
-  function nextSlide() {
-    _setSlide($slides.activeSlide + 1);
-  }
-
-  function goToLiveSlide() {
-    _setSlide($meeting.slides.liveSlide);
-  }
-
-  function updateText(event) {
-    state.update((prev) => ({ ...prev, previewHTML: event.detail.text }));
-  }
-
-  const parseUser = (user) => {
-    return {
-      uid: user.uid,
-      avatar: user.photoURL || user.displayName[0],
-      name: user.displayName,
-      email: user.email,
-      reaction: user.reaction || null,
-    };
-  };
 
   async function startJoinMeeting(event) {
     const id = event.detail.id;
@@ -76,39 +35,26 @@
 
     console.log(user, $meeting);
     firebaseDB.registerPresence(id, user);
-    const data = await fetchAllSlides($meeting.slideMetadata);
-
-    slides.update((prev) => ({
-      ...prev,
-      count: data.length,
-      slideContent: data,
-    }));
-  }
-
-  function updateViewers(viewers) {
-    meeting.update((prev) => ({ ...prev, viewers }));
+    fetchAllSlides($meeting.meta).then((slidesData) => {
+      slides.addSlideContent(slidesData);
+      slides.setSlide($meeting.live.liveSlide);
+    });
   }
 
   function updateLive(live) {
-    const isLiveSlide = $slides.activeSlide === $meeting.slides.liveSlide;
+    const isLiveSlide = $slides.activeSlide === $meeting.live.liveSlide;
     const activeSlide = isLiveSlide ? live.liveSlide : $slides.activeSlide;
 
     if (activeSlide !== $slides.activeSlide) {
-      slides.update((prev) => ({ ...prev, activeSlide }));
+      slides.setSlide(activeSlide);
     }
-    meeting.update((prev) => ({ ...prev, slides: live }));
-    // [displaySelection, {
-    // 	isHost: $state.me.isHost,
-    // 	slideIndex: activeSlide,
-    // 	isLiveSlide: activeSlide === live.liveSlide,
-    // 	liveP: live.liveP,
-    // }],
+    meeting.updateLive(live);
   }
 
   function subscribeToMeeting(id) {
     firebaseDB.subscribeToViewers(
       id,
-      (viewers) => updateViewers(Object.values(viewers)),
+      (viewers) => meeting.updateViewers(Object.values(viewers)),
       () => console.warn(`WARN: meetings.viewers[${id}] does not exist!`)
     );
     firebaseDB.subscribeToLive(
@@ -145,14 +91,14 @@
           meeting={$meeting}
           localSlides={$slides}
           user={user || parseUser(rawUser)}
-          on:switchTab={switchTab}
+          on:switchTab={(event) => state.switchTab(event.detail.index)}
           on:reaction={setReaction}
           on:liveSlideChange={updateLiveSlide}
-          on:prevSlide={prevSlide}
-          on:nextSlide={nextSlide}
-          on:goToLiveSlide={goToLiveSlide}
-          on:setSlide={setSlide}
-          on:updateText={updateText}
+          on:setSlide={(event) => slides.setSlide(event.detail.index)}
+          on:prevSlide={slides.prevSlide}
+          on:nextSlide={slides.nextSlide}
+          on:goToLiveSlide={() => slides.setSlide($meeting.live.liveSlide)}
+          on:updateText={(event) => state.updatePreviewHTML(event.detail.text)}
         />
       {:else}
         <Modal user={user || parseUser(rawUser)} on:submit={startJoinMeeting} />

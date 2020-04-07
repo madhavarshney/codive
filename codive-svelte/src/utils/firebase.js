@@ -44,7 +44,7 @@ class FirebaseDB {
       })
     );
     const [event, meta, live, viewers] = docs;
-    return { event, slideMetadata: meta, slides: live, viewers: viewers || {} };
+    return { event, meta, live, viewers: viewers || {} };
   }
   subscribeToViewers(id, onData, onError) {
     const ref = this.db.ref(`meetings/viewers/${id}`);
@@ -100,13 +100,22 @@ export const parseMeeting = (prevState, id, meeting) => {
       ...meeting.event,
     },
     viewers: [...(meeting.viewers ? Object.values(meeting.viewers) : [])],
-    slides: {
-      count: (prevState && prevState.meeting.slides.count) || 0,
-      ...meeting.slides,
+    live: {
+      ...meeting.live,
     },
-    slideMetadata: {
-      ...meeting.slideMetadata,
+    meta: {
+      ...meeting.meta,
     },
+  };
+};
+
+export const parseUser = (user) => {
+  return {
+    uid: user.uid,
+    avatar: user.photoURL || user.displayName[0],
+    name: user.displayName,
+    email: user.email,
+    reaction: user.reaction || null,
   };
 };
 
