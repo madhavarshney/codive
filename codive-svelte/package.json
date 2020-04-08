@@ -7,8 +7,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server",
-    "lint": "prettier --check \"./**/*.{svelte,js}\"",
-    "lint:fix": "prettier --write \"./**/*.{svelte,js}\"",
+    "lint": "prettier --check \"./**/*.{svelte,js,html}\"",
+    "lint:fix": "prettier --write \"./**/*.{svelte,js,html}\"",
     "postinstall": "patch-package"
   },
   "dependencies": {

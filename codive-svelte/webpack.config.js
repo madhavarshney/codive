@@ -49,9 +49,7 @@ module.exports = {
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
-        use: [
-          linariaLoader,
-        ],
+        use: [linariaLoader],
       },
       {
         test: /\.svelte$/,

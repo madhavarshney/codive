@@ -24,7 +24,7 @@ function createSlides() {
   });
 
   const getNewIndex = (prev, index) =>
-    (index >= 0 && index < prev.count ? index : prev.activeSlide);
+    index >= 0 && index < prev.count ? index : prev.activeSlide;
 
   return {
     subscribe,

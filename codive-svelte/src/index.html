@@ -1,24 +1,46 @@
 <!DOCTYPE html>
-<html lang='en'>
-<head>
-	<meta charset='utf8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <base href='<%= htmlWebpackPlugin.options.websiteUrl %>'>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="<%= htmlWebpackPlugin.options.websiteUrl %>" />
 
-	<title><%= htmlWebpackPlugin.options.title %></title>
-	<meta name='description' content='<%= htmlWebpackPlugin.options.description %>'>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
 
-    <link rel='home' href='<%= htmlWebpackPlugin.options.websiteUrl %>'/>
-    <link rel='shortcut icon' href='/assets/favicon.ico'>
-    <link rel='icon' type='image/png' sizes='32x32' href='/assets/favicon-32x32.png'>
-    <link rel='icon' type='image/png' sizes='16x16' href='/assets/favicon-16x16.png'>
-    <link rel='canonical' href='<%= htmlWebpackPlugin.options.websiteUrl %>' />
+    <link rel="home" href="<%= htmlWebpackPlugin.options.websiteUrl %>" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16x16.png"
+    />
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.websiteUrl %>" />
 
     <!-- Open graph -->
-    <meta property='og:title' content='<%= htmlWebpackPlugin.options.title %>' />
-    <meta property='og:description' content='<%= htmlWebpackPlugin.options.description %>' />
-    <meta property='og:type' content='website' />
-    <meta property='og:url' content='<%= htmlWebpackPlugin.options.websiteUrl %>' />
+    <meta
+      property="og:title"
+      content="<%= htmlWebpackPlugin.options.title %>"
+    />
+    <meta
+      property="og:description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="<%= htmlWebpackPlugin.options.websiteUrl %>"
+    />
     <!-- <meta property='og:image' content='<%= htmlWebpackPlugin.options.websiteUrl %>/assets/card.png' />
     <meta property='og:image:secure_url' content='<%= htmlWebpackPlugin.options.websiteUrl %>/assets/card.png' />
     <meta property='og:image:type' content='image/png' />
@@ -27,16 +49,22 @@
     <meta property='og:image:alt' content='<%= htmlWebpackPlugin.options.title %>' /> -->
 
     <!-- Twitter -->
-    <meta name='twitter:card' content='summary'>
-    <meta name='twitter:url' content='<%= htmlWebpackPlugin.options.websiteUrl %>'>
-    <meta name='twitter:title' content='<%= htmlWebpackPlugin.options.title %>'>
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:url"
+      content="<%= htmlWebpackPlugin.options.websiteUrl %>"
+    />
+    <meta
+      name="twitter:title"
+      content="<%= htmlWebpackPlugin.options.title %>"
+    />
 
     <!-- Android -->
     <!-- <link rel='manifest' href='/manifest.webmanifest'>
     <meta name='mobile-web-app-capable' content='yes'>
     <meta name='theme-color' content='#ffffff'> -->
-    <link rel='manifest' href='/assets/site.webmanifest'>
-    <meta name='theme-color' content='#ffffff'>
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- iOS -->
     <!-- <meta name='apple-mobile-web-app-capable' content='yes'>
@@ -47,19 +75,29 @@
     <link rel='apple-touch-icon' sizes='180x180' href='/assets/icon-180x180.png'>
     <link rel='apple-touch-icon' sizes='192x192' href='/assets/icon-192x192.png'>
     <link rel='apple-touch-icon' sizes='512x512' href='/assets/icon-512x512.png'> -->
-    <link rel='apple-touch-icon' sizes='180x180' href='/assets/apple-touch-icon.png'>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.png"
+    />
 
     <!-- Safari -->
-    <link rel='mask-icon' href='/assets/safari-pinned-tab.svg' color='#5bbad5'>
+    <link
+      rel="mask-icon"
+      href="/assets/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
 
     <!-- Windows -->
     <!-- <meta name='msapplication-TileImage' content='/assets/icon-512x512.png'>
     <meta name='msapplication-TileColor' content='#ffffff'> -->
-    <meta name='msapplication-TileColor' content='#ffffff'>
-    <meta name='msapplication-config' content='/assets/browserconfig.xml'>
-</head>
-<body>
-    <script src='https://meet.jit.si/external_api.js'></script>
-</body>
-<noscript>Enable JavaScript to use <%= htmlWebpackPlugin.options.title %></noscript>
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="/assets/browserconfig.xml" />
+  </head>
+  <body>
+    <script src="https://meet.jit.si/external_api.js"></script>
+  </body>
+  <noscript
+    >Enable JavaScript to use <%= htmlWebpackPlugin.options.title %></noscript
+  >
 </html>

@@ -46,7 +46,7 @@
     {#each reactions as r}
       <button
         on:click={() => setReaction(r.id)}
-        class='reaction-btn'
+        class="reaction-btn"
         class:active={user.reaction === r.id}
         title={r.id}
       >

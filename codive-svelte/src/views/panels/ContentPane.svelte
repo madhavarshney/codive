@@ -87,7 +87,10 @@
   {/each}
 </div>
 
-<div class={`slide  ${roundedPanel}`} class:square-corner-panel={currentTab === 0}>
+<div
+  class={`slide ${roundedPanel}`}
+  class:square-corner-panel={currentTab === 0}
+>
   <JitsiMeet isActiveTab={currentTab === 0} {user} {jitsiID} />
   <Slide
     isActiveTab={currentTab === 1}
