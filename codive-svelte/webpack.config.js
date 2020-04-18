@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const WebpackBar = require('webpackbar');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -8,6 +9,10 @@ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const firebaseConfig =
+  process.env.FIREBASE_CONFIG ||
+  JSON.stringify(require('../firebaseConfig.json'));
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -94,15 +99,21 @@ module.exports = {
     new CleanWebpackPlugin(),
     new WebpackBar(),
     new Stylish(),
-    new CopyWebpackPlugin([{ from: 'assets', to: 'assets' }]),
+    new CopyWebpackPlugin([
+      { from: 'assets', to: 'assets' },
+      { from: '../CNAME' },
+    ]),
     new HtmlWebpackPlugin({
       title: 'Codive',
       template: 'src/index.html',
       // NOTE: the following are custom parameters / this usage may break in the future
       description: 'A real-time platform for hosting coding workshops.',
       websiteUrl: prod
-        ? 'https://madhavarshney.github.io/codive'
+        ? 'https://codive.foothillcs.club'
         : 'http://localhost:8080',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.FIREBASE_CONFIG': firebaseConfig,
     }),
     new MonacoWebpackPlugin({
       filename: prod ? '[name].[contenthash:8].worker.js' : '[name].worker.js',

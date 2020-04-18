@@ -2,7 +2,8 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-import firebaseConfig from '../../../firebaseConfig.json';
+// NOTE: this gets replaced by webpack
+const firebaseConfig = process.env.FIREBASE_CONFIG;
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
