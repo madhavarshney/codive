@@ -1,0 +1,53 @@
+{
+  "name": "codive",
+  "version": "1.0.0-alpha.0",
+  "private": true,
+  "description": "A real-time platform for hosting coding workshops",
+  "author": "Madhav Varshney <madhavarshney@gmail.com>",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack-dev-server",
+    "lint": "prettier --check \"./**/*.{svelte,js,html}\"",
+    "lint:fix": "prettier --write \"./**/*.{svelte,js,html}\"",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "firebase": "^7.13.2",
+    "firebaseui": "^4.5.0",
+    "github-markdown-css": "^4.0.0",
+    "monaco-editor": "^0.20.0",
+    "sanitize.css": "^11.0.0",
+    "sveltefire": "^0.1.4"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
+    "husky": "^4.2.5",
+    "linaria": "^1.3.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "monaco-editor-webpack-plugin": "^1.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "patch-package": "^6.2.2",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
+    "serve": "^11.3.0",
+    "style-loader": "^1.1.3",
+    "svelte": "^3.20.1",
+    "svelte-loader": "2.13.6",
+    "webpack": "^4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-stylish": "^0.1.8",
+    "webpackbar": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
