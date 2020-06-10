@@ -22,4 +22,7 @@ _More on this will come soon._
 ## Developing
 
 ## License
-_Will be updated..._
+
+The code in this repo is licensed under the MIT license.
+
+_To be continued..._
