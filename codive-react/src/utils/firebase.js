@@ -3,7 +3,7 @@ import 'firebase/auth'
 import 'firebase/database'
 import * as firebaseui from 'firebaseui';
 
-import firebaseConfig from '/../firebaseConfig.json';
+import firebaseConfig from '/../../firebaseConfig.json';
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

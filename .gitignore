@@ -21,9 +21,5 @@ node_modules/
 # Mac files
 .DS_Store
 
-# Parcel
-.cache/
-dist
-
 # Firebase config (for web)
 firebaseConfig.json
