@@ -23,11 +23,11 @@ _More on this will come soon._
 
 ### Introduction
 
-Codive has two frontend implementations, one written in React-like [HyperApp](hyperapp.dev) and the other written in [Svelte](svelte.dev). For the backend, Firebase is currently used.
+Codive has two frontend implementations, one written in React-like [HyperApp](https://hyperapp.dev/) and the other written in [Svelte](https://svelte.dev/). For the backend, Codive currently uses [Firebase](https://firebase.google.com/).
 
 ### Prerequisites
-- Install Node.js and npm
-- Set up a Firebase project
+- Install [Node.js](https://nodejs.org/) and npm
+- Set up a [Firebase project](https://console.firebase.google.com/)
 
 ### Setup
 
@@ -40,7 +40,7 @@ Download your firebase config for the web and rename + move it to `./firebaseCon
 
 ### Starting Codive
 
-Currently, the Svelte version is more up-to-date than the hyperapp version.
+Note: Currently, the Svelte version is more up-to-date compared to the HyperApp version.
 
 #### Svelte
 
