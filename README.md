@@ -19,7 +19,52 @@ Codive is a live real-time collaboration platform for hosting workshops and coll
 ## Features
 _More on this will come soon._
 
-## Developing
+## Development
+
+### Introduction
+
+Codive has two frontend implementations, one written in React-like [HyperApp](hyperapp.dev) and the other written in [Svelte](svelte.dev). For the backend, Firebase is currently used.
+
+### Prerequisites
+- Install Node.js and npm
+- Set up a Firebase project
+
+### Setup
+
+```bash
+git clone https://github.com/madhavarshney/codive.git
+cd codive
+```
+
+Download your firebase config for the web and rename + move it to `./firebaseConfig.js`
+
+### Starting Codive
+
+Currently, the Svelte version is more up-to-date than the hyperapp version.
+
+#### Svelte
+
+```bash
+cd codive-svelte
+npm i
+npm run dev
+```
+
+Go to https://localhost:8080
+
+#### Hyperapp
+
+```bash
+cd codive-react
+npm i
+npm run start
+```
+
+Go to https://localhost:1234
+
+## Roadmap
+
+- [ ] Create a roadmap
 
 ## License
 
