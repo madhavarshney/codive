@@ -109,7 +109,7 @@ module.exports = {
       // NOTE: the following are custom parameters / this usage may break in the future
       description: 'A real-time platform for hosting coding workshops.',
       websiteUrl: prod
-        ? 'https://codive.foothillcs.club'
+        ? process.env.DEPLOY_URL || 'https://codive.foothillcs.club'
         : 'http://localhost:8080',
     }),
     new webpack.DefinePlugin({
