@@ -27,9 +27,10 @@
 
   function JitsiMeet(user, roomName) {
     const domain = 'meet.jit.si';
+    // TODO: seperate moderators from hosts
     // TODO: use user-specified settings for audio and video
     const settings = {
-      isHost,
+      isMod: isHost,
       enableAudio: false,
       enableVideo: false,
     };
