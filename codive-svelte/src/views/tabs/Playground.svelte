@@ -72,6 +72,7 @@
     display: flex;
     flex-direction: row;
     margin: 16px 24px;
+    margin-left: 0;
     flex: 1;
   }
   #editor {

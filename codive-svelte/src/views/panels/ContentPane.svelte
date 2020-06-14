@@ -70,8 +70,10 @@
     flex-direction: column;
     transition: border-radius 0.2s;
   }
-  .square-corner-panel {
+  .first-panel {
     border-radius: 0 16px 16px 16px;
+    /* We remove padding so that the Jitsi Meet iframe takes up the full panel */
+    padding: 0;
   }
 </style>
 
@@ -87,11 +89,8 @@
   {/each}
 </div>
 
-<div
-  class={`slide ${roundedPanel}`}
-  class:square-corner-panel={currentTab === 0}
->
-  <JitsiMeet isActiveTab={currentTab === 0} {user} {jitsiID} />
+<div class={`slide ${roundedPanel}`} class:first-panel={currentTab === 0}>
+  <JitsiMeet isActiveTab={currentTab === 0} {user} {jitsiID} {isHost} />
   <Slide
     isActiveTab={currentTab === 1}
     {activeSlide}

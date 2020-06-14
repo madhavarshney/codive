@@ -1,46 +1,45 @@
 <script>
   import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+  import {
+    configOverwrite,
+    interfaceConfigOverwrite,
+  } from '../../utils/jitsiSettings';
 
   export let isActiveTab;
   export let user;
   export let jitsiID;
+  export let isHost;
 
   let meet;
   let meetEl;
 
   const dispatch = createEventDispatcher();
 
-  onMount(() => {
-    JitsiMeet(user, jitsiID);
-  });
+  onMount(() => joinMeet());
   onDestroy(() => {
     meet.dispose();
     meet = null;
   });
 
+  function joinMeet() {
+    JitsiMeet(user, jitsiID);
+  }
+
   function JitsiMeet(user, roomName) {
     const domain = 'meet.jit.si';
+    // TODO: use user-specified settings for audio and video
+    const settings = {
+      isHost,
+      enableAudio: false,
+      enableVideo: false,
+    };
     const options = {
       roomName,
       width: '100%',
       height: '100%',
       parentNode: meetEl,
-      configOverwrite: {
-        enableClosePage: false,
-        disableThirdPartyRequests: true,
-        analytics: {
-          disabled: true,
-        },
-      },
-      interfaceConfigOverwrite: {
-        SHOW_JITSI_WATERMARK: false,
-        SHOW_WATERMARK_FOR_GUESTS: false,
-        SHOW_CHROME_EXTENSION_BANNER: false,
-
-        CLOSE_PAGE_GUEST_HINT: false,
-        SHOW_PROMOTIONAL_CLOSE_PAGE: false,
-        // HIDE_KICK_BUTTON_FOR_GUESTS: false,
-      },
+      configOverwrite: configOverwrite(settings),
+      interfaceConfigOverwrite: interfaceConfigOverwrite(settings),
       // userInfo: {
       //     displayName: user.name,
       // },
@@ -64,11 +63,23 @@
     display: none !important;
   }
   #meet {
-    /* width: 100%; */
-    /* height: 100%; */
     flex: 1;
-    padding: 16px 24px;
+  }
+  .rejoin-container {
+    padding: 28px 36px 16px;
+  }
+  .rejoin-container p {
+    margin-top: 0;
+    margin-bottom: 16px;
   }
 </style>
 
-<div bind:this={meetEl} class:hidden={!isActiveTab} id="meet" />
+<div bind:this={meetEl} class:hidden={!isActiveTab} id="meet">
+  {#if meet === null}
+    <div class="rejoin-container">
+      <!-- TODO: add more controls -->
+      <p>You have left the conference.</p>
+      <button on:click={joinMeet}>Join</button>
+    </div>
+  {/if}
+</div>

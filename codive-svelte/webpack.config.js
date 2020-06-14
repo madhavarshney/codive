@@ -102,10 +102,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new WebpackBar(),
     new Stylish(),
-    new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets' },
-      { from: '../CNAME' },
-    ]),
+    new CopyWebpackPlugin([{ from: 'assets', to: 'assets' }]),
     new HtmlWebpackPlugin({
       title: 'Codive',
       template: 'src/index.html',
