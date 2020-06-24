@@ -36,7 +36,7 @@ git clone https://github.com/madhavarshney/codive.git
 cd codive
 ```
 
-Download your firebase config for the web and rename + move it to `./firebaseConfig.js`
+Download your firebase config for the web and rename + move it to `./firebaseConfig.json`
 
 ### Starting Codive
 
